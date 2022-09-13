@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %} 
+<title> {% block title %} Sign Up
+  {% endblock %}</title>
+<h1 class="display-3 text-white animated slideInDown">
+  {% block  pagename %}
+      Sign Up
+  {% endblock pagename  %}
+      </h1>
+{% block content %}
+<h3>Sign Up</h3>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <a href="#"><input type="submit" value="Sign Up" class="btn btn-primary btn-lg m-2"></a>
+  </form>
+
+{% endblock %}

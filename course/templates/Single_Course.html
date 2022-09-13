@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%load static %}
+<title> {% block title %} {{course.course_name}}
+    {% endblock %}</title>
+    <h1 class="display-3 text-white animated slideInDown">
+        {% block  pagename %}
+        {{course.course_name}}
+        {% endblock pagename  %}
+        </h1>
+{%block body%}
+<div class="container">
+    <div class="row ">
+        <div class="col-12 d-flex justify-content-center">
+            <img class="image-fluid  w-50" src="{{course.course_image.url}}">
+        </div>
+    </div>   
+</div>
+<hr>
+<div class="container p-12">
+    <div class="row ">
+        <div class="col-12 d-flex justify-content-center">
+            <h3>Content<h3>
+        </div>
+    </div>   
+</div>
+
+{%endblock body%}

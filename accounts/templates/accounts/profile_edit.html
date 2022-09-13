@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{%load static %}
+
+<title> {% block title %} Personal Information
+    {% endblock %}</title>
+    <h1 class="display-3 text-white animated slideInDown">
+        {% block  pagename %}
+        Personal Information
+        {% endblock pagename  %}
+            </h1>
+{% block body %}
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+ 
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class=" mx-auto ">
+                <div class="apply_job_form white-bg">
+                    <h3>Edit Profile</h3>
+                        {% load bootstrap4 %}                
+                        <form method="post" class="form" enctype="multipart/form-data">
+                         {% csrf_token %}
+                         {% bootstrap_form userform %}
+                         {% bootstrap_form profileform %}
+                         {% buttons %}
+                        <button type="submit" class="btn btn-primary btn-lg mt-2">Change</button>
+                        {% endbuttons %}
+                      </form>
+                </div>
+                </div>
+        </div>
+    </div>
+    {% endblock body %}
+
+   

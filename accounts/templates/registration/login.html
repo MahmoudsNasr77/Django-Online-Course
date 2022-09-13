@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %} 
+<title> {% block title %} Login 
+  {% endblock %}</title>
+{% block  pagename %}
+Login in
+{% endblock pagename  %}
+</h1>
+{% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <a href="#"><input type="submit" value="Login" class="btn btn-primary btn-lg m-2"></a>
+   
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <p> Don't Have An Account?</p> 
+<a class="text-success font-weight-bold"href="{% url 'accounts:signup' %}">Join eLEARNING</a>
+ 
+
+{% endblock %}

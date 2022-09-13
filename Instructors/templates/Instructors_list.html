@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+<title> {% block title %} Team
+    {% endblock %}</title>
+    <h1 class="display-3 text-white animated slideInDown">
+        {% block  pagename %}
+            Our Team
+        {% endblock pagename  %}
+            </h1>
+{%block body%}
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
+                <h1 class="mb-5">Expert Instructors</h1>
+            </div>
+            <div class="row g-4">
+                {%for i in instructor_list%}  
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <a href="{% url 'instructors:view_instructor' i.slug%}"><img class="img-fluid" src="{{i.image.url}}" alt=""></a>
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href="{{i.github}}"><i class="fab fa-github"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href="{{i.linkdin}}"><i class="fab fa-linkedin"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href="{{i.facebook}}"><i class="fab fa-facebook "></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">{{i.name}}</h5>
+                            <small>{{i.job}}</small>
+                        </div>
+                    </div>
+                </div>
+                
+             {% endfor %}    
+
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+
+
+
+
+
+{%endblock body%}
+
+
